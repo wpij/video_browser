@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 @Controller
 public class HomeController {
 
@@ -18,23 +23,26 @@ public class HomeController {
     }
 
 
-    @GetMapping("/video_add")
+    @GetMapping("/video")
+    public String video() {
+        return "video";
+    }
+
+
+
+    @GetMapping("/add")
         public String create(
             @RequestParam String videoname,
             @RequestParam String video_url,
             ModelMap modelMap) {
 
         Video video = new Video(videoname,video_url);
-        modelMap.put("video",video);
         videoList.addvideo(video);
-        return "/list";
-    }
-
-
-    @GetMapping("/video")
-    public String video() {
+        System.out.println("Videos size"+videoList.findAll().size());
+        modelMap.put("videos",videoList.findAll());
         return "list";
     }
+
 
     @ResponseBody
     @GetMapping("/list")
@@ -43,5 +51,10 @@ public class HomeController {
        return "play";
     }
 
-
+    @Override
+    public String toString() {
+        return "HomeController{" +
+                "videoList=" + videoList +
+                '}';
+    }
 }

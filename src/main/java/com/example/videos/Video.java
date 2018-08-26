@@ -9,6 +9,9 @@ public class Video {
     public Video(String videoName, String videoUrl) {
         this.videoName = videoName;
         this.videoUrl = videoUrl;
+
+
+
     }
 
     public String getVideoName() {

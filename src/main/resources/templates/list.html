@@ -12,18 +12,22 @@
     th:each odpowiednich foreach
     dla thymeleaf, html
     for ( task: tasks){
+<iframe width="560" height="315" th:src="${video.getVideoUrl()}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<li>
+    <iframe width="560" height="315" th:src="${video.getVideoUrl()}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
+<ul
     }
 -->
-
-<ul th:each="video: ${video}">
-
-    <li th:text="${video}">
-
-    </li>
-
+<ul>
+<li th:each="video: ${videos}">
+    <iframe width="560" height="315" th:src="${video.getVideoUrl()}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</li>
 
 </ul>
+
+
+
 
 </body>
 </html>
